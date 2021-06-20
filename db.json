@@ -1,0 +1,66 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "name": "Sherlock Homles: Những vụ kỳ án",
+      "img_src": "https://cdn0.fahasa.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/n/h/nhung_vu_ky_an_cua_sherlock_holmestb_1_2020_05_30_12_53_10.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Sherlock Homels: Trò chơi bóng tối",
+      "img_src": "https://vuviphims.com/wp-content/uploads/2016/07/Tham-Tu-Sherlock-Holmes-2009-poster.jpg"
+    }
+  ],
+  "top_rated_books": [
+    {
+      "id": 1,
+      "name": "Sherlock Homles: Những vụ kỳ án",
+      "img_src": "https://cdn0.fahasa.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/n/h/nhung_vu_ky_an_cua_sherlock_holmestb_1_2020_05_30_12_53_10.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Sherlock Homels: Trò chơi bóng tối",
+      "img_src": "https://vuviphims.com/wp-content/uploads/2016/07/Tham-Tu-Sherlock-Holmes-2009-poster.jpg"
+    }
+  ],
+  "latest_arrival": [
+    {
+      "id": 3,
+      "name": "Ánh sáng thành phố",
+      "img_src": "https://static.8cache.com/cover/o/eJzLyTDW13VKDUn1MLYoSCx31Q-LcE8z9Mo0qfTx1HeEgjxjX31XJzcvUxdTC93wcv1iAwDIvg_S/anh-sang-thanh-pho.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Đề thi đẫm máu",
+      "img_src": "https://static.8cache.com/cover/o/eJzLyTDW183PLiwNd3FMMiwM1A-LiHB3dS73zEr11HeEgjyzSP0QXwuLIo_04tA8R_1iAwDlYxEP/de-thi-dam-mau.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Sông ngầm",
+      "img_src": "https://gacsach.com/sites/gacsach.com/files/song-ngam.jpg"
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "name": "Sherlock Homles: Những vụ kỳ án",
+      "img_src": "https://cdn0.fahasa.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/n/h/nhung_vu_ky_an_cua_sherlock_holmestb_1_2020_05_30_12_53_10.jpg",
+      "quantity": 1,
+      "price": 120000
+    },
+    {
+      "id": 2,
+      "name": "Sherlock Homels: Trò chơi bóng tối",
+      "img_src": "https://vuviphims.com/wp-content/uploads/2016/07/Tham-Tu-Sherlock-Holmes-2009-poster.jpg",
+      "quantity": 0,
+      "price": 120000
+    },
+    {
+      "id": 3,
+      "name": "Ánh sáng thành phố",
+      "img_src": "https://static.8cache.com/cover/o/eJzLyTDW13VKDUn1MLYoSCx31Q-LcE8z9Mo0qfTx1HeEgjxjX31XJzcvUxdTC93wcv1iAwDIvg_S/anh-sang-thanh-pho.jpg",
+      "quantity": 1,
+      "price": 120000
+    }
+  ]
+}
