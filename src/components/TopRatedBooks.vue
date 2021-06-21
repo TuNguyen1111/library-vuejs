@@ -2,11 +2,11 @@
     <div class="">
         <h2 id="title">Top rated book</h2>
         <div class="wrapper">
-            <img class="arrow" src="../assets/arrow-left.png" alt="">
-            <div class="top-rated-books">
+            <img id="arrow-left" class="arrow" src="../assets/arrow-left.png" alt="">
+            <div class="top-rated-books" id="rated-books">
                 <Book :key="book.id" v-for="book in topRatedBooks" :book="book"/>
             </div>
-            <img class="arrow" src="../assets/arrow-right.png" alt="">
+            <img id="arrow-right" class="arrow" src="../assets/arrow-right.png" alt="">
         </div>
     </div>
 </template>
@@ -27,9 +27,30 @@ export default Vue.extend({
 
     async created() {
         this.topRatedBooks = await this.getTopRatedBooks()
+        this.slideImages()
     },
 
     methods: {
+        slideImages() {
+            let arrowLeft = document.getElementById('arrow-left')
+            let arrowRight = document.getElementById('arrow-right')
+            let topRatedBooks = document.getElementById('rated-books')
+            console.log(topRatedBooks)
+
+            arrowLeft?.addEventListener('click', function() {
+               if (topRatedBooks) {
+                   topRatedBooks.scrollLeft -= 180
+               }
+               
+            })
+
+            arrowRight?.addEventListener('click', function() {
+                if (topRatedBooks) {
+                   topRatedBooks.scrollLeft += 180
+               }
+            })
+        },
+
         async getTopRatedBooks() {
             let booksRespone = await fetch(this.apiLinks)
             let topRatedBooks = await booksRespone.json()
@@ -48,10 +69,11 @@ export default Vue.extend({
 }
 
 .top-rated-books {
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 #title {

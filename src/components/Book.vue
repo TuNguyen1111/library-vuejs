@@ -2,12 +2,11 @@
     <div>
         <v-img
             :src="book.img_src"
-            width="200"
-            height="300"
+            width="150"
+            height="230"
             class="book-img"
             @click="addToCart()"
         >
-
         </v-img>
     </div>
 </template>
@@ -90,6 +89,7 @@ export default Vue.extend({
 .book-img {
     border: 4px solid white;
     transition: all 0.4s ease-in;
+    margin-left: 10px;
 }
 
 .book-img:hover {
