@@ -1,9 +1,11 @@
 <template>
   <v-app id="app">
+    <h1>Detective novel books store</h1>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/cart">Cart</router-link> |
+      <router-link to="/books">Books</router-link> |
     </div>
     <v-main>
       <v-container>

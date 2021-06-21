@@ -2,11 +2,11 @@
     <div class="">
         <h2 id="title">Top rated book</h2>
         <div class="wrapper">
-            <img id="arrow-left" class="arrow" src="../assets/arrow-left.png" alt="">
+            
             <div class="top-rated-books" id="rated-books">
                 <Book :key="book.id" v-for="book in topRatedBooks" :book="book"/>
             </div>
-            <img id="arrow-right" class="arrow" src="../assets/arrow-right.png" alt="">
+            
         </div>
     </div>
 </template>

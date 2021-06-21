@@ -62,32 +62,33 @@
                 v-for="book in cart"
                 :key="book.id"
                 class="book-img mx-auto"
-                max-width="400"
+                max-width="300"
             >
                 <v-img
                     class="white--text align-end"
                     height="200px"
                     :src="book.img_src"
+                    contain
                 >
-                    <v-card-title>Top 10 Australian beaches</v-card-title>
                 </v-img>
 
                 <v-card-subtitle class="pb-0">
-                    Number 10
+                    {{ book.name }}
                 </v-card-subtitle>
 
                 <v-card-text class="text--primary">
-                    <div>Whitehaven Beach</div>
+                    <div>Author: {{ book.author }}</div>
 
-                    <div>Whitsunday Island, Whitsunday Islands</div>
+                    <div>Price: {{ book.price }} vnd</div>
                 </v-card-text>
 
                 <v-card-actions>
                     <v-btn
                         color="orange"
                         text
+                        @click="deleteBook(book.id)"
                     >
-                        Share
+                        Delete
                     </v-btn>
 
                     <v-btn
@@ -140,6 +141,17 @@ export default Vue.extend({
             return cart
         },
 
+        async deleteBook(id: number) {
+            let bookRespone = await fetch(this.cartApi + "/" + id, {
+                method: "DELETE",
+            })
+            if (bookRespone.status === 200) {
+                this.cart = this.cart.filter(task => task.id !== id)
+            } else {
+                alert("Error deleting!")
+            }
+        },
+
         async decreaseOrIncreaseQuantity(book: object, bookId: number, decrease=false) {
             if (decrease) {
                 book.quantity -= 1
@@ -171,8 +183,8 @@ export default Vue.extend({
 <style scoped>
 
 .home {
-    display: flex;
-    justify-content: space-around;
+    /* display: flex;
+    justify-content: space-around; */
 }
 
 .quantity {
@@ -187,13 +199,15 @@ export default Vue.extend({
 }
 
 .books-list {
-    width: 40%;
+    width: 80%;
+    margin: auto;
 }
 
 .overview {
-    width: 50%;
+    width: 100%;
+    margin-top: 2%;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .book-img {

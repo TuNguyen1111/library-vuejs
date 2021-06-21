@@ -1,13 +1,25 @@
 <template>
-    <div>
-        <v-img
-            :src="book.img_src"
-            width="150"
-            height="230"
-            class="book-img"
-            @click="addToCart()"
-        >
-        </v-img>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <v-img
+                    :src="book.img_src"
+                    width="150"
+                    height="198"
+                    class="book-img"
+                >
+                </v-img>
+            </div>
+            <div class="flip-card-back">
+                <h3>{{ book.name }}</h3>
+                <h3>{{ book.author }}</h3>
+                <h3>{{ book.price }} vnd</h3>
+                <v-btn
+                    elevation="2"
+                    @click="addToCart()"
+                >Buy</v-btn>
+            </div>
+        </div>
     </div>
 </template>
 <script lang="ts">
@@ -38,7 +50,6 @@ export default Vue.extend({
             }
             this.bookOrderd = this.book
             this.bookOrderd.quantity = 1
-            this.bookOrderd.price = 120000
             return false
         },
 
@@ -86,13 +97,42 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.book-img {
-    border: 4px solid white;
-    transition: all 0.4s ease-in;
-    margin-left: 10px;
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px; 
+  margin-left: 3%;
 }
 
-.book-img:hover {
-    transform: scale(120%);
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  background-color: white;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+.book-img {
+    border: 4px solid white;
+}
+
 </style>
