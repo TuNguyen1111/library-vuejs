@@ -145,11 +145,17 @@ export default Vue.extend({
             let bookRespone = await fetch(this.cartApi + "/" + id, {
                 method: "DELETE",
             })
+
             if (bookRespone.status === 200) {
                 this.cart = this.cart.filter(task => task.id !== id)
             } else {
                 alert("Error deleting!")
             }
+
+            if (!this.cart.length) {
+                this.totalPrice = 0
+            }
+
         },
 
         async decreaseOrIncreaseQuantity(book: object, bookId: number, decrease=false) {

@@ -13,8 +13,11 @@
             </div>
         </div>
         <div v-if="!haveSearchResult">
-            <div class="books-row" id="books-row" v-for="(booksRow, index) in books" :key="index">
-                <Book v-for="book in booksRow" :key="book.id" :book="book"/>
+            <div id="books-row" v-for="(booksRow, index) in books" :key="index">
+                <div class="books-row">
+                    <Book v-for="book in booksRow" :key="book.id" :book="book"/>
+                </div>
+                <div class="bookshelf"></div>
             </div>
         </div>
         <div v-else>
@@ -55,14 +58,17 @@ export default Vue.extend({
         },
         searchBook(){
             let searchResult = document.getElementById('search-result')
+            if (searchResult) {
+                searchResult.innerHTML = ''
+            }
+            this.booksSearchResult = []
+            
             if (!this.searchKey.length) {
                 if (searchResult) {
                     searchResult.style.display = 'none'
-                    searchResult.innerHTML = ''
-                    this.booksSearchResult = []
                     this.haveSearchResult = false
                 }
-            }else {
+            } else {
                 if (searchResult) {
                     searchResult.style.display = 'block'
                 }
@@ -107,7 +113,7 @@ export default Vue.extend({
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin: 3% 0;
+    margin-top: 3%;
     text-align: center;
 }
 
@@ -125,5 +131,10 @@ export default Vue.extend({
     background: white;
     display: none;
     opacity: 0.5;
+}
+
+.bookshelf {
+  height: 15px;
+  background: orange;
 }
 </style>

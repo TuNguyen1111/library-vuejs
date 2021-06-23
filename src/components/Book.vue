@@ -11,13 +11,46 @@
                 </v-img>
             </div>
             <div class="flip-card-back">
-                <h3>{{ book.name }}</h3>
-                <h3>{{ book.author }}</h3>
-                <h3>{{ book.price }} vnd</h3>
-                <v-btn
-                    elevation="2"
-                    @click="addToCart()"
-                >Buy</v-btn>
+                <v-card
+    class="mx-auto"
+    max-width="344"
+    outlined
+  >
+    <v-list-item three-line>
+      <v-list-item-content>
+        <div class="text-overline mb-4">
+          Overview
+        </div>
+        <v-list-item-title class="text-h5 mb-1">
+          {{ book.author }}
+        </v-list-item-title>
+        <v-list-item-subtitle>{{ book.name }}</v-list-item-subtitle>
+      </v-list-item-content>
+
+      <v-list-item-avatar
+        tile
+        size="80"
+        color="grey"
+      >
+        <v-img
+          :src="book.author_img"
+        >
+
+        </v-img>
+      </v-list-item-avatar>
+    </v-list-item>
+
+    <v-card-actions>
+      <v-btn
+        outlined
+        rounded
+        text
+        @click="addToCart()"
+      >
+        Add
+      </v-btn>
+    </v-card-actions>
+  </v-card>
             </div>
         </div>
     </div>
